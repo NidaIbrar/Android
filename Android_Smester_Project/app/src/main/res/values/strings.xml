@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Android_Smester_Project</string>
+    <string-array name="specialization">
+        <item>--Select--</item>
+        <item>Eye Specialist</item>
+        <item>Heart Specialist</item>
+        <item>Child Specialist</item>
+        <item>Physiotherapist</item>
+        <item>Dentist</item>
+    </string-array>
+
+</resources>

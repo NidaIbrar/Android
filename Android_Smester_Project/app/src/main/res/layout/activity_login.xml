@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.nidaawan.android_smester_project.LOGIN">
+
+    <TextView
+        android:text="DOCTOR NAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="143dp"
+        android:id="@+id/txtView_UserID" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/txtView_UserID"
+        android:layout_alignStart="@+id/txtView_UserID"
+        android:id="@+id/txtView_Password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/txtView_Password"
+        android:layout_toEndOf="@+id/txtView_Password"
+        android:layout_marginLeft="77dp"
+        android:layout_marginStart="77dp"
+        android:id="@+id/editTxt_Password"
+        android:hint="Enter Password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_above="@+id/editTxt_Password"
+        android:layout_alignLeft="@+id/editTxt_Password"
+        android:layout_alignStart="@+id/editTxt_Password"
+        android:layout_marginBottom="41dp"
+        android:id="@+id/editTxt_DocName" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTxt_Password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:id="@+id/btn_LOGin" />
+
+</RelativeLayout>
