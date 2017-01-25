@@ -40,8 +40,7 @@ public class Home extends AppCompatActivity {
                 SharedPreferences.Editor editor= sp.edit();
                 editor.remove("Doc_Name");
                 editor.apply();
-                Intent intent= new Intent(Home.this,SP_Welcome.class);
-                startActivity(intent);
+                
 
             }
         });
