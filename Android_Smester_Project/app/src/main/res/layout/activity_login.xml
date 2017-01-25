@@ -22,39 +22,6 @@
         android:layout_marginTop="143dp"
         android:id="@+id/txtView_UserID" />
 
-    <TextView
-        android:text="Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/txtView_UserID"
-        android:layout_alignStart="@+id/txtView_UserID"
-        android:id="@+id/txtView_Password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/txtView_Password"
-        android:layout_toEndOf="@+id/txtView_Password"
-        android:layout_marginLeft="77dp"
-        android:layout_marginStart="77dp"
-        android:id="@+id/editTxt_Password"
-        android:hint="Enter Password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_above="@+id/editTxt_Password"
-        android:layout_alignLeft="@+id/editTxt_Password"
-        android:layout_alignStart="@+id/editTxt_Password"
-        android:layout_marginBottom="41dp"
-        android:id="@+id/editTxt_DocName" />
-
     <Button
         android:text="Button"
         android:layout_width="wrap_content"
@@ -63,5 +30,24 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:id="@+id/btn_LOGin" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTxt_DocName"
+        android:layout_alignTop="@+id/txtView_UserID"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:id="@+id/txtV_Result" />
 
 </RelativeLayout>

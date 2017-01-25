@@ -13,13 +13,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Database extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
-    private static String DATABASE_NAME="DAS.db";
+    private static String DATABASE_NAME = "DAS.db";
 
-    private static String TABLE_NAME="Doctors";
+    private static String TABLE_NAME = "Doctors";
 
-    public static final String COL_1="CLINIC_NAME";
-    public static final String COL_2="ADDRESS";
-    public static final String COL_3="DOCTOR_NAME";
+    public static final String COL_1 = "CLINIC_NAME";
+    public static final String COL_3 = "ADDRESS";
+    public static final String COL_2= "DOCTOR_NAME";
 
 
     public Database(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -29,7 +29,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE "+TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, CLINIC_NAME TEXT,DOCTOR_NAME TEXT,ADDRESS TEXT);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, CLINIC_NAME TEXT,DOCTOR_NAME TEXT,ADDRESS TEXT);");
     }
 
     @Override
@@ -37,28 +37,53 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    public void insert_DOCTORS_ACCOUNT(String clinicname, String doctorname,String address )
-    {
-        SQLiteDatabase db=this.getWritableDatabase();
+    public boolean insert_DOCTORS_ACCOUNT(String clinicname, String doctorname, String address) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_1 , clinicname);
+
+        contentValues.put(COL_1, clinicname);
         contentValues.put(COL_2, doctorname);
-        contentValues.put(COL_3 , address);
+        contentValues.put(COL_3, address);
 
 
 
-
-         this.getWritableDatabase().insertOrThrow("Doctors", "", contentValues);
-
-    }
-    public Cursor  DOCTORS_LOGIN(String doctorname )
-    {
-        SQLiteDatabase db= this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELCET * FROM Doctors WEHRE DOCTOR_NAME="+doctorname,null);
-        cursor.close();
-        return cursor;
-
+       // this.getWritableDatabase().insertOrThrow("Doctors", "", contentValues);
+        long result=db.insert(TABLE_NAME,null,contentValues);
+        db.close();
+        if (result==-1){
+            return false;
+        }
+        else
+            return true;
 
     }
 
+    public String DOCTORS_LOGIN(String doctorname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String q="SELECT * FROM  "+TABLE_NAME;
+        Cursor cursor = db.rawQuery(q, null);
+
+        String docname;
+
+        String result="No Data";
+        if (cursor.moveToFirst()) {
+            do {
+
+
+
+                if (doctorname.equals(cursor.getString(2))) {
+
+
+
+                    result=cursor.getString(2);
+                    break;
+                }
+            } while (cursor.moveToNext());
+
+            cursor.close();
+
+        }
+
+        return result;
+    }
 }

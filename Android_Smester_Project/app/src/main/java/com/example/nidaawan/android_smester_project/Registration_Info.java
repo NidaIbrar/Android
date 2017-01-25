@@ -24,17 +24,23 @@ public class Registration_Info extends AppCompatActivity {
         E1=(EditText) findViewById(R.id.editTxt_ClinicName);
         E2=(EditText) findViewById(R.id.editTxt_DoctorName);
         E3=(EditText) findViewById(R.id.editTxt_Address);
+
         Button btn1 =(Button) findViewById(R.id.btn_Save);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                /* Intent k=new Intent(Registration_Info.this, Registration_Continue.class);
                 startActivity(k);*/
-                db.insert_DOCTORS_ACCOUNT(E1.getText().toString(),E2.getText().toString(),E3.getText().toString());;
+               boolean check= db.insert_DOCTORS_ACCOUNT(E1.getText().toString(),E2.getText().toString(),E3.getText().toString());
 
+                if (check==true) {
 
-                    Toast.makeText(Registration_Info.this,"Welcome", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Registration_Info.this, "DataInserted", Toast.LENGTH_LONG).show();
+                }
+                if(check==false){
+                    Toast.makeText(Registration_Info.this, "Data not Inserted", Toast.LENGTH_LONG).show();
 
+                }
 
             }
         });
